@@ -73,20 +73,20 @@ public abstract class Plant {
     
 }
 
-// class decorativePlants extends Plant {
-//     public decorativePlants(String name, String scientificName, int age) {
-//         super(name, scientificName, age);
-//     }
-// }
+class decorativePlants extends Plant {
+    public decorativePlants(String name, String scientificName, int age) {
+        super(name, scientificName, age);
+    }
+}
 
-// class medicinalPlants extends Plant {
-//     public medicinalPlants(String name, String scientificName, int age) {
-//         super(name, scientificName, age);
-//     }
-// }
+class medicinalPlants extends Plant {
+    public medicinalPlants(String name, String scientificName, int age) {
+        super(name, scientificName, age);
+    }
+}
 
-// class  vegetablePlants extends Plant {
-//     public vegetablePlants(String name, String scientificName, int age) {
-//         super(name, scientificName, age);
-//     }
-// }
+class  vegetablePlants extends Plant {
+    public vegetablePlants(String name, String scientificName, int age) {
+        super(name, scientificName, age);
+    }
+}
