@@ -16,7 +16,7 @@ public class Garden{
     public void addPlant() {
         System.out.println("\n*** Tambah Tanaman Baru ***");
         System.out.print("Masukkan nama tanaman: ");
-        String name = scanner.nextLine();
+        String plantName = scanner.nextLine();
 
         System.out.print("Masukkan nama ilmiah tanaman: ");
         String scientificName = scanner.nextLine();
@@ -35,22 +35,22 @@ public class Garden{
 
         switch (type) {
             case 1:
-                plant = new decorativePlants(name, scientificName, age);
+                plant = new DecorativePlants(plantName, scientificName, age);
                 break;
             case 2:
-                plant = new medicinalPlants(name, scientificName, age);
+                plant = new MedicinalPlants(plantName, scientificName, age);
                 break;
             case 3:
-                plant = new vegetablePlants(name, scientificName, age);
+                plant = new VegetablePlants(plantName, scientificName, age);
                 break;
             default:
                 System.out.println("Jenis tanaman tidak valid. Menambahkan sebagai tanaman biasa.");
-                plant = new Plant(name, scientificName, age);
+                plant = new Plant(plantName, scientificName, age);
                 break;
         }
 
         plants.add(plant);
-        System.out.println("Tanaman " + name + " berhasil ditambahkan ke taman!.");
+        System.out.println("Tanaman " + plantName + " berhasil ditambahkan ke taman!.");
 
     }
 
@@ -76,10 +76,10 @@ public class Garden{
         System.out.println("\n*** Update Pertumbuhan Tanaman ***");
 
         for (Plant plant : plants) {
-            System.out.println("\nMemperbarui tanaman: " + plant.name);
+            System.out.println("\nMemperbarui tanaman: " + plant.plantName);
 
             plant.grow(0);      // User memilih pupuk/vitamin di dalam method grow()
-            plant.water(0);     // User memilih siram/tidak di dalam method water()
+            plant.water(false);     // User memilih siram/tidak di dalam method water()
             plant.weather(0);   // User memilih cuaca di dalam method weather()
         }
     }
