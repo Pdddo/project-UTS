@@ -100,22 +100,25 @@ class MedicinalPlants extends Plant{
     }
 
     public void inputDetail() {
-        System.out.println("Masukkan nama ilmiah tanaman hias: ");
+        System.out.println("Masukkan nama ilmiah tanaman obat: ");
         this.scientificName = input.nextLine();
     }
 }
 
 
-class  VegetablePlants extends Plant{
+class VegetablePlants extends Plant {
     public VegetablePlants(String plantName) {
         super(plantName, "", 0);
     }
+
     public VegetablePlants(String plantName, String scientificName, int age) {
         super(plantName, scientificName, age);
     }
 
     public void inputDetail() {
-        System.out.println("Masukkan nama ilmiah tanaman hias: ");
+        System.out.println("Masukkan nama ilmiah tanaman sayur: ");
         this.scientificName = input.nextLine();
     }
 }
+
+
