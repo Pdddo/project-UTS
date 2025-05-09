@@ -45,7 +45,7 @@ public class Garden{
                 break;
             default:
                 System.out.println("Jenis tanaman tidak valid. Menambahkan sebagai tanaman biasa.");
-                plant = new Plant(plantName, scientificName, age);
+                plant = new Plant(name, scientificName, age);
                 break;
         }
 
@@ -79,7 +79,7 @@ public class Garden{
             System.out.println("\nMemperbarui tanaman: " + plant.plantName);
 
             plant.grow(0);      // User memilih pupuk/vitamin di dalam method grow()
-            plant.water(false);     // User memilih siram/tidak di dalam method water()
+            plant.water(0);     // User memilih siram/tidak di dalam method water()
             plant.weather(0);   // User memilih cuaca di dalam method weather()
         }
     }
