@@ -45,9 +45,9 @@ public class Garden extends Plant{
                 plant = new VegetablePlants(plantName, scientificName, age);
                 break;
             default:
-                System.out.println("Jenis tanaman tidak valid"); //iyaa
+                System.out.println("Jenis tanaman tidak valid");
                 break;
-        }// cocok mi itu kah? lupa cok
+        }
 
         System.out.println("Tanaman " + plantName + " berhasil ditambahkan ke taman!.");
 
