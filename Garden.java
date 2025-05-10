@@ -3,8 +3,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Garden extends Plant {
-    public List<Plant> plants;
+public class Garden extends Plant{
+    private List<Plant> plants;
+
     private String layoutName;
     private Scanner scanner;
 

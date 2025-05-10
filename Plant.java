@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public abstract class Plant {
+
     Scanner input = new Scanner(System.in);
+
     protected String plantName;
     protected String scientificName;
     protected double age;
@@ -10,13 +12,10 @@ public abstract class Plant {
     protected int nutrition;
     protected int sunlight;
 
-    public Plant(String plantName) {
-        this.plantName = plantName;
-    }
-
     //inisialisasi nilai awal
     public Plant(String plantName, String scientificName, int age) {
         this.plantName = plantName;
+
         this.scientificName = scientificName;
         this.age = age;
         this.status = "Layu";
@@ -179,12 +178,11 @@ public abstract class Plant {
         return  "\n STATUS KESEHATAN TANAMAN" + 
         "\nNama Tanaman   : " + plantName +
         "\nNama Ilmiah    : " + scientificName +
-        "\nUsia           : " + age + 
+        "\nUsia           : " + age + " tahun" +
         "\nStatus         : " + status +
         "\nNutrition      : " + nutrition +
         "\nHydration      : " + hydration +
         "\nSunlight       : " + sunlight;
-
     }
 
 } 

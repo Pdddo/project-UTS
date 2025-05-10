@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Player{
+public class Player {
     private String playerName;
     private Garden garden;
     private Scanner scanner;
@@ -25,6 +25,11 @@ public class Player{
             System.out.println("3. Pilih tanaman untuk aksi");
             System.out.println("4. Update pertumbuhan tanaman");
             System.out.println("5. Buka ensiklopedia botani");
+
+            System.out.println("1. Tambah Tanaman");
+            System.out.println("2. Lihat Semua Tanaman");
+            System.out.println("3. Update Pertumbuhan Tanaman");
+            System.out.println("4. Buka Ensiklopedia Botani");
             System.out.println("0. Kembali ke menu utama");
             System.out.print("> ");
 
@@ -34,7 +39,8 @@ public class Player{
             }
 
             choice = scanner.nextInt();
-            scanner.nextLine(); 
+
+            scanner.nextLine(); // hapus newline
 
             switch (choice) {
                 case 1:
@@ -63,7 +69,9 @@ public class Player{
 
     private void openEncyclopedia() {
         System.out.println("\n=== Ensiklopedia Botani ===");
+
         System.out.print("Masukkan jenis tanaman (hias, obat, sayur): ");
+
         String input = scanner.nextLine().toLowerCase();
 
         if (input.equals("hias") || input.equals("obat") || input.equals("sayur")) {
