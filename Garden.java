@@ -2,12 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Garden{
+public class Garden extends Plant{
     private List<Plant> plants;
     private String layoutName;
     private Scanner scanner;
 
-    public Garden(String layoutName) {
+    public Garden(String plantName, String scientificName, int age, String layoutName) {
+        super(plantName, scientificName, age);
         this.layoutName = layoutName;
         this.plants = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -44,12 +45,10 @@ public class Garden{
                 plant = new VegetablePlants(plantName, scientificName, age);
                 break;
             default:
-                System.out.println("Jenis tanaman tidak valid. Menambahkan sebagai tanaman biasa.");
-                plant = new Plant(plantName, scientificName, age);
+                System.out.println("Jenis tanaman tidak valid"); //iyaa
                 break;
-        }
+        }// cocok mi itu kah? lupa cok
 
-        plants.add(plant);
         System.out.println("Tanaman " + plantName + " berhasil ditambahkan ke taman!.");
 
     }

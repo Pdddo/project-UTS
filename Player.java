@@ -1,54 +1,71 @@
 import java.util.Scanner;
 
-public class Player {
-    private String name;
+public class Player{
+    private String playerName;
     private Garden garden;
+    private Scanner scanner;
 
-    public Player(String name, String potDesign, String backgroundDesign) {
-        this.name = name;
-        this.garden = new Garden(name + "'s Garden", potDesign, backgroundDesign);
+    public Player(String playerName) {
+        this.playerName = playerName;
+        // this.garden = new Garden("Taman " + playerName);
+        this.scanner = new Scanner(System.in);
     }
 
-    public void addPlantMenu() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Pilih jenis tanaman:");
-        System.out.println("1. Tanaman Hias");
-        System.out.println("2. Tanaman Obat");
-        System.out.println("3. Tanaman Sayur");
-        System.out.print("Pilihan: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine(); 
+    public String getPlayerName() {
+        return playerName;
+    }
 
-        System.out.print("Nama tanaman: ");
-        String plantName = scanner.nextLine();
+    public void showMenu() {
+        int choice;
 
-        Plant plant;
-        switch (choice) {
-            case 1 -> plant = new DecorativePlants(plantName);
-            case 2 -> plant = new MedicinalPlants(plantName);
-            case 3 -> plant = new VegetablePlants(plantName);
-            default -> {
-                System.out.println("Pilihan tidak valid.");
-                return;
+        do {
+            System.out.println("\n=== Menu Pemain: " + playerName + " ===");
+            System.out.println("1. Tambah Tanaman");
+            System.out.println("2. Lihat Semua Tanaman");
+            System.out.println("3. Update Pertumbuhan Tanaman");
+            System.out.println("4. Buka Ensiklopedia Botani");
+            System.out.println("0. Kembali ke menu utama");
+            System.out.print("> ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.print("Input tidak valid. Masukkan angka: ");
+                scanner.next();
             }
+
+            choice = scanner.nextInt();
+            scanner.nextLine(); // hapus newline
+
+            switch (choice) {
+                case 1:
+                    garden.addPlant();
+                    break;
+                case 2:
+                    garden.displayAllPlants();
+                    break;
+                case 3:
+                    garden.updatePlantGrowth();
+                    break;
+                case 4:
+                    openEncyclopedia();
+                    break;
+                case 0:
+                    System.out.println("Kembali ke menu utama...");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
+            }
+        } while (choice != 0);
+    }
+
+    private void openEncyclopedia() {
+        System.out.println("\n=== Ensiklopedia Botani ===");
+        System.out.print("Masukkan jenis tanaman (hias, obat, sayur) atau nama tanaman: ");
+        String input = scanner.nextLine().toLowerCase();
+
+        if (input.equals("hias") || input.equals("obat") || input.equals("sayur")) {
+            System.out.println(BotanyEncyclopedia.getInfoByType(input));
+        } else {
+            System.out.println(BotanyEncyclopedia.getInfoByName(input));
         }
-
-        garden.addPlant(plant);
-        System.out.println(plantName + " berhasil ditambahkan ke taman!");
-    }
-
-    public void showGarden() {
-        System.out.println("\n=== Taman milik " + name + " ===");
-        System.out.println("Desain Pot: " + garden.getPotDesign());
-        System.out.println("Desain Latar: " + garden.getBackgroundDesign());
-        garden.displayGarden();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Garden getGarden() {
-        return garden;
     }
 }
