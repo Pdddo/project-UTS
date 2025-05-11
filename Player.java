@@ -7,7 +7,7 @@ public class Player{
 
     public Player(String playerName) {
         this.playerName = playerName;
-        // this.garden = new Garden("Taman " + playerName);
+        this.garden = new Garden("Taman " + playerName);
         this.scanner = new Scanner(System.in);
     }
 
@@ -20,10 +20,11 @@ public class Player{
 
         do {
             System.out.println("\n=== Menu Pemain: " + playerName + " ===");
-            System.out.println("1. Tambah Tanaman");
-            System.out.println("2. Lihat Semua Tanaman");
-            System.out.println("3. Update Pertumbuhan Tanaman");
-            System.out.println("4. Buka Ensiklopedia Botani");
+            System.out.println("1. Tambah tanaman");
+            System.out.println("2. Lihat semua tanaman");
+            System.out.println("3. Pilih tanaman untuk aksi");
+            System.out.println("4. Update pertumbuhan tanaman");
+            System.out.println("5. Buka ensiklopedia botani");
             System.out.println("0. Kembali ke menu utama");
             System.out.print("> ");
 
@@ -33,7 +34,7 @@ public class Player{
             }
 
             choice = scanner.nextInt();
-            scanner.nextLine(); // hapus newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -43,9 +44,12 @@ public class Player{
                     garden.displayAllPlants();
                     break;
                 case 3:
-                    garden.updatePlantGrowth();
+                    garden.actionPlant();
                     break;
                 case 4:
+                    garden.updatePlantGrowth();
+                    break;
+                case 5:
                     openEncyclopedia();
                     break;
                 case 0:
@@ -59,7 +63,7 @@ public class Player{
 
     private void openEncyclopedia() {
         System.out.println("\n=== Ensiklopedia Botani ===");
-        System.out.print("Masukkan jenis tanaman (hias, obat, sayur) atau nama tanaman: ");
+        System.out.print("Masukkan jenis tanaman (hias, obat, sayur): ");
         String input = scanner.nextLine().toLowerCase();
 
         if (input.equals("hias") || input.equals("obat") || input.equals("sayur")) {

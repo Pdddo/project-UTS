@@ -9,7 +9,7 @@ public class BotanyEncyclopedia {
             case "obat":
                 return "🌿 Tanaman Obat:\n" +
                        "Jenis tanaman yang memiliki khasiat kesehatan dan digunakan dalam pengobatan tradisional.\n" +
-                       "Contoh: Kunyit, Jahe, Lidah Buaya.";
+                       "Contoh: Kunyit, Jahe, Lidah Buaya, Sambiloto,daun kelor, temulawak.";
             case "sayur":
                 return "🥬 Tanaman Sayur:\n" +
                        "Tanaman yang ditanam untuk dikonsumsi sebagai makanan.\n" +
