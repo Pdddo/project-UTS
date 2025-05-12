@@ -14,6 +14,7 @@ public abstract class Plant {
         this.plantName = plantName;
     }
 
+    //inisialisasi nilai awal
     public Plant(String plantName, String scientificName, int age) {
         this.plantName = plantName;
         this.scientificName = scientificName;
@@ -24,16 +25,18 @@ public abstract class Plant {
         this.sunlight = 0;
     }
 
-    public void setPlantName (String plantName) {
+    //setter
+    public void setPlantName(String plantName) {
         this.plantName = plantName;
     }
 
-    public String getPlantName () {
+    //getter
+    public String getPlantName() {
         return plantName;
     }
 
+    //Method grow() yang memungkinkan user untuk memilih hendak memberikan opsi penunjang pertumbuhan apa (pupuk/vitamin)
     public void grow(int type) {
-        type = 0;
         boolean validInput = false;
         while (!validInput) {
             try {
@@ -41,8 +44,16 @@ public abstract class Plant {
                 System.out.println("Pilih opsi penunjang pertumbuhan: ");
                 System.out.println("1. Pupuk");
                 System.out.println("2. Vitamin");
+                System.out.println("0. Keluar");
                 System.out.print("> ");
-                type = Integer.parseInt(input.nextLine());
+
+                String inputLine = input.nextLine().trim();
+                if (inputLine.isEmpty()) {
+                    System.out.println("Input tidak boleh kosong!");
+                    continue;
+                }
+
+                type = Integer.parseInt(inputLine);
 
                 if (type == 1) {
                     this.nutrition += 10;
@@ -52,6 +63,9 @@ public abstract class Plant {
                     this.nutrition += 20;
                     validInput = true;
                     System.out.println("Tanaman telah diberi vitamin!");
+                } else if (type == 0) {
+                    validInput = true;
+                    System.out.println("Kamu memilih keluar dari menu pertumbuhan");
                 } else {
                     System.out.println("Opsi tidak tersedia. Silahkan coba lagi!");
                 }
@@ -62,19 +76,20 @@ public abstract class Plant {
         updateStatus();
     }
 
+    //Method water() yang memungkinkan user memilih apakah hendak memberi pupuk kepada tanaman atau tidak
     public void water(boolean validInput) {
         validInput = false;
         while (!validInput) {
             System.out.println("\nSelamat datang di menu Penyiraman");
             System.out.println("Mau menyiram tanaman? [y/n]");
             System.out.print("> ");
-            String isWatered = input.nextLine();
+            String isWatered = input.nextLine().trim();
 
             if (isWatered.equalsIgnoreCase("y")) {
                 this.hydration += 5;
                 validInput = true;
                 System.out.println("Tanaman telah disiram. Hidrasi +5");
-            } else if (isWatered.equalsIgnoreCase("n")){
+            } else if (isWatered.equalsIgnoreCase("n")) {
                 validInput = true;
                 System.out.println("Tanaman belum disiram...");
             } else {
@@ -84,8 +99,8 @@ public abstract class Plant {
         updateStatus();
     }
 
+    //Method weather() yang memungkinkan user untuk menginput kondisi cuaca
     public void weather(int weatherType) {
-        weatherType = 0;
         boolean validInput = false;
         while (!validInput) {
             try {
@@ -93,8 +108,16 @@ public abstract class Plant {
                 System.out.println("1. Cerah");
                 System.out.println("2. Mendung");
                 System.out.println("3. Hujan");
+                System.out.println("0. Keluar");
                 System.out.print("> ");
-                weatherType = Integer.parseInt(input.nextLine());
+
+                String inputLine = input.nextLine().trim();
+                if (inputLine.isEmpty()) {
+                    System.out.println("Input tidak boleh kosong!");
+                    continue;
+                }
+
+                weatherType = Integer.parseInt(inputLine);
 
                 switch (weatherType) {
                     case 1:
@@ -112,10 +135,14 @@ public abstract class Plant {
                         validInput = true;
                         System.out.println("Waduhh hujann. Tanaman gak dapet cahaya matahari T_T");
                         break;
+                    case 0:
+                        validInput = true;
+                        System.out.println("Kamu memilih keluar dari menu cuaca");
+                        break;
                     default:
                         System.out.println("hmm.. cuacanya gak jelas, input ulang yah!");
                         break;
-                        }
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Masukkan antara 1/2/3");
             }
@@ -123,6 +150,7 @@ public abstract class Plant {
         updateStatus();
     }
     
+    //Method updateStatus() yang akan mengakumulasi nutrisi, hidrasi dan sunlight dari tanaman lalu mengkategorikannya ke dalam kategori sehat, cukup sehat atau layu
     public void updateStatus() {
         if (nutrition >= 15 && hydration >= 5 && sunlight >= 5) {
             status = "Sehat";
@@ -133,24 +161,29 @@ public abstract class Plant {
         }
     }
 
+    //Method updateAge() merupakan method yang akan mengupdate usia tanaman tergantung kondisi kesehatan
     public void updateAge() {
-        age = 0;
         if (status.equalsIgnoreCase("Sehat")) {
             age += 1;
+            System.out.println("Tanaman mu " + status + ". Usia bertambah!");
         } else if (status.equalsIgnoreCase("Cukup sehat")) {
             age += 0.5;
+            System.out.println("Tanaman mu " + status + ". Usia bertambah.");
+        } else if (status.equalsIgnoreCase("Layu")) {
+            System.out.println("Waduh.. Tanaman mu " + status + ". Cepat rawat tanamanmu!");
         }
     }
 
+    //Method checkHealth() yang akan menampilkan kepada user info serta kondisi kesehatan tanaman
     public String checkHealth() {
-        return  "\n STATUS KESEHATAN TANAMAN" + // neh ada garis kuningnya
-        "\nNama Tanaman: " + plantName +
-        "\nNama Ilmiah: " + scientificName +
-        "\nUsia : " + age + 
-        "\nStatus: " + status +
-        "\nNutrition: " + nutrition +
-        "\n Hydration: " + hydration +
-        "\nSunlight: " + sunlight;
+        return  "\n STATUS KESEHATAN TANAMAN" + 
+        "\nNama Tanaman   : " + plantName +
+        "\nNama Ilmiah    : " + scientificName +
+        "\nUsia           : " + age + 
+        "\nStatus         : " + status +
+        "\nNutrition      : " + nutrition +
+        "\nHydration      : " + hydration +
+        "\nSunlight       : " + sunlight;
 
     }
 
