@@ -1,8 +1,11 @@
+import java.util.Scanner;
+
 public class Player implements IDescribable, ICategorizable, Indoorable {
     private String playerName;
     private String category;
     private boolean suitableForIndoor;
-    private Garden garden; 
+    private Garden garden;
+    private Scanner scanner = new Scanner(System.in);
 
     public Player(String name, String category, boolean suitableForIndoor, Garden garden) {
         this.playerName = name;
@@ -56,7 +59,50 @@ public class Player implements IDescribable, ICategorizable, Indoorable {
             System.out.println(playerName + " belum memiliki taman.");
         }
     }
+
+    public void showMenu() {
+        int choice;
+
+        do {
+            System.out.println("\n=== Menu Pemain: " + playerName + " ===");
+            System.out.println("1. Tambah tanaman");
+            System.out.println("2. Lihat semua tanaman");
+            System.out.println("3. Pilih tanaman untuk aksi");
+            System.out.println("4. Update pertumbuhan tanaman");
+            System.out.println("0. Kembali ke menu utama");
+            System.out.print("> ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.print("Input tidak valid. Masukkan angka: ");
+                scanner.next();
+            }
+
+            choice = scanner.nextInt();
+            scanner.nextLine(); // hapus newline
+
+            switch (choice) {
+                case 1:
+                    if (garden != null) garden.addPlant();
+                    break;
+                case 2:
+                    if (garden != null) garden.displayAllPlants();
+                    break;
+                case 3:
+                    if (garden != null) garden.actionPlant();
+                    break;
+                case 4:
+                    if (garden != null) garden.updatePlantGrowth();
+                    break;
+                case 0:
+                    System.out.println("Kembali ke menu utama...");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
+            }
+        } while (choice != 0);
+    }
 }
+
 
 
 // import java.util.Scanner;
