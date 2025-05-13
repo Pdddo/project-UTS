@@ -2,7 +2,7 @@ public class Player implements IDescribable, ICategorizable, Indoorable {
     private String playerName;
     private String category;
     private boolean suitableForIndoor;
-    private Garden garden; // Tambahkan properti garden
+    private Garden garden; 
 
     public Player(String name, String category, boolean suitableForIndoor, Garden garden) {
         this.playerName = name;
