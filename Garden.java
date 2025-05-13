@@ -7,6 +7,7 @@ public class Garden extends Plant{
     private List<Plant> plants;
 
     private String layoutName;
+    private String name;
     private Scanner scanner;
 
     // Membuat taman berdasarkan nama layout
@@ -24,6 +25,11 @@ public class Garden extends Plant{
         this.plants = new ArrayList<>();
         this.scanner = new Scanner(System.in);
     }
+
+    public String getName() {
+        return name;
+    }
+
 
     // Method untuk menambahkan tanaman baru ke taman
     public void addPlant() {
