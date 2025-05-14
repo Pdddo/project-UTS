@@ -14,7 +14,7 @@ Tiap tanaman memiliki atribut:
 o Nama 
 o Level pertumbuhan (Bibit – Tunas – Mekar) 
 o Status (Sehat, Layu, Overwatered) 
-o Kebutuhan khusus (air, cahaya, tanah)
+o Kebutuhan khusus (air, cahaya, tanah) 🧍
 ### Encyclopedia Botani
 Fitur edukatif berisi info singkat tentang tiap tanaman. 
 
