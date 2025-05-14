@@ -1,8 +1,8 @@
-<h1 align="center">  Terrabotanica</h1> <p align="center"> <b>A Virtual World of Living Plants </b> </p>
+<h1 align="center"> 🌱 Terrabotanica 🌱 </h1> <p align="center"> <b>A Virtual World of Living Plants </b> </p>
 
 ### Konsep Umum
 
-** 🌱 Terrabotanica 🌱 ** sebuah simulasi taman virtual di mana pemain dapat menanam, merawat, dan mengembangkan tanaman dalam dunia digital yang hidup dan dinamis. Nama Terrabotanica berasal dari gabungan kata “Terra”  (bumi) dan “Botanica” (ilmu tumbuhan), menciptakan suasana dunia botani yang utuh dan imersif — seolah-olah taman ini berada di sebuah planet yang khusus diciptakan untuk kehidupan tanaman.
+**Terrabotanica** sebuah simulasi taman virtual di mana pemain dapat menanam, merawat, dan mengembangkan tanaman dalam dunia digital yang hidup dan dinamis. Nama Terrabotanica berasal dari gabungan kata “Terra”  (bumi) dan “Botanica” (ilmu tumbuhan), menciptakan suasana dunia botani yang utuh dan imersif — seolah-olah taman ini berada di sebuah planet yang khusus diciptakan untuk kehidupan tanaman.
 
 ## 🧩 Fitur Utama
 ### 🌿 Tanam & Rawat 
