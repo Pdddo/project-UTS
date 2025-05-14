@@ -1,4 +1,4 @@
-<h1 align="center"> Terrabotanica</h1> <p align="center"> <b>A Virtual World of Living Plants </b> </p>
+<h1 align="center">  Terrabotanica</h1> <p align="center"> <b>A Virtual World of Living Plants </b> </p>
 
 ### Konsep Umum
 
