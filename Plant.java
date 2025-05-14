@@ -12,10 +12,13 @@ public abstract class Plant {
     protected int nutrition;
     protected int sunlight;
 
+    public Plant (String plantName) {
+        this.plantName = plantName;
+    }
+    
     //inisialisasi nilai awal
     public Plant(String plantName, String scientificName, int age) {
         this.plantName = plantName;
-
         this.scientificName = scientificName;
         this.age = age;
         this.status = "Layu";
