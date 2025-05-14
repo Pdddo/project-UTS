@@ -2,11 +2,15 @@ import java.util.Scanner;
 
 public class Player implements IDescribable, ICategorizable, Indoorable {
     private String playerName;
+    
     private String category;
     private boolean suitableForIndoor;
     private Garden garden;
     private Scanner scanner = new Scanner(System.in);
-
+    
+    public Player(String playerName) {
+        this.playerName = playerName;
+    }
     public Player(String name, String category, boolean suitableForIndoor, Garden garden) {
         this.playerName = name;
         this.category = category;
