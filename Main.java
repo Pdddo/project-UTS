@@ -17,8 +17,7 @@ public class Main {
         while (!exit) {
             System.out.println("\n=== Menu Utama ===");
             System.out.println("1. Masuk ke Menu Pemain");
-            System.out.println("2. Pilih tanaman untuk aksi");
-            System.out.println("3. Keluar");
+            System.out.println("2. Keluar");
             System.out.print("Pilih menu: ");
             String input = scanner.nextLine();
 
@@ -26,9 +25,6 @@ public class Main {
                 case "1":
                     player.showMenu();
                 case "2":
-        
-                break;
-                case "3":
                     exit = true;
                     System.out.println("Terima kasih telah menggunakan aplikasi taman.");
                     break;
