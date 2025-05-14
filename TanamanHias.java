@@ -6,8 +6,9 @@ public class TanamanHias {
     private String lightPreference;  
 
     // Konstruktor
-    public TanamanHias(String plantName, String category, boolean isIndoor, String lightPreference) {
+    public TanamanHias(String plantName, String scientificName, String category, boolean isIndoor, String lightPreference) {
         this.plantName = plantName;
+        this.scientificName = scientificName;
         this.category = category;
         this.isIndoor = isIndoor;
         this.lightPreference = lightPreference;

@@ -2,12 +2,11 @@ import java.util.Scanner;
 
 public class Player implements IDescribable, ICategorizable, Indoorable {
     private String playerName;
-    
     private String category;
     private boolean suitableForIndoor;
     private Garden garden;
     private Scanner scanner = new Scanner(System.in);
-
+    private BotanyEncyclopedia botanyEncyclopedia = new BotanyEncyclopedia(); // Create an instance of BotanyEncyclopedia
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -75,8 +74,9 @@ public class Player implements IDescribable, ICategorizable, Indoorable {
             System.out.println("2. Lihat semua tanaman");
             System.out.println("3. Pilih tanaman untuk aksi");
             System.out.println("4. Update pertumbuhan tanaman");
+            System.out.println("5. Lihat Botany Encyclopedia");
             System.out.println("0. Kembali ke menu utama");
-            System.out.print("> ");
+            System.out.print("> "); 
 
             while (!scanner.hasNextInt()) {
                 System.out.print("Input tidak valid. Masukkan angka: ");
@@ -98,6 +98,9 @@ public class Player implements IDescribable, ICategorizable, Indoorable {
                     break;
                 case 4:
                     if (garden != null) garden.updatePlantGrowth();
+                    break;
+                case 5:
+                    botanyEncyclopedia.startEncyclopedia(); // Call the BotanyEncyclopedia method
                     break;
                 case 0:
                     System.out.println("Kembali ke menu utama...");

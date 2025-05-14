@@ -12,6 +12,7 @@ public class Main {
         System.out.print("Masukkan nama taman: ");
         String gardenName = scanner.nextLine();
         Garden garden = new Garden(gardenName);
+        BotanyEncyclopedia ensiklopedia = new BotanyEncyclopedia();
 
         player.setGarden(garden);
 
@@ -19,7 +20,8 @@ public class Main {
         while (!exit) {
             System.out.println("\n=== Menu Utama ===");
             System.out.println("1. Masuk ke Menu Pemain");
-            System.out.println("2. Keluar");
+            System.out.println("2. Buka Ensiklopedia");
+            System.out.println("3. Keluar");
             System.out.print("Pilih menu: ");
             String input = scanner.nextLine();
 
@@ -28,6 +30,9 @@ public class Main {
                     player.showMenu();
                     break;
                 case "2":
+                    ensiklopedia.startEncyclopedia();
+                    break;
+                case "3":
                     exit = true;
                     System.out.println("Terima kasih telah menggunakan aplikasi taman.");
                     break;

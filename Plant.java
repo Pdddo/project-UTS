@@ -37,6 +37,13 @@ public abstract class Plant {
         return plantName;
     }
 
+    public void setScientificName(String scientificName){
+        this.scientificName = scientificName;
+    }
+    public String getscientificName(){
+        return scientificName;
+    }
+    
     //Method grow() yang memungkinkan user untuk memilih hendak memberikan opsi penunjang pertumbuhan apa (pupuk/vitamin)
     public void grow(int type) {
         boolean validInput = false;
