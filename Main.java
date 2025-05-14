@@ -13,6 +13,8 @@ public class Main {
         String gardenName = scanner.nextLine();
         Garden garden = new Garden(gardenName);
 
+        player.setGarden(garden);
+
         boolean exit = false;
         while (!exit) {
             System.out.println("\n=== Menu Utama ===");
@@ -24,6 +26,7 @@ public class Main {
             switch (input) {
                 case "1":
                     player.showMenu();
+                    break;
                 case "2":
                     exit = true;
                     System.out.println("Terima kasih telah menggunakan aplikasi taman.");

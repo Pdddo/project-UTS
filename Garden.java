@@ -11,11 +11,18 @@ public class Garden extends Plant{
     private Scanner scanner;
 
     // Membuat taman berdasarkan nama layout
-    public Garden(String layoutName) {
-        super(layoutName);
-        this.layoutName = layoutName;
-        this.plants = new ArrayList<>();
+    // public Garden(String layoutName) {
+    //     super(layoutName);
+    //     this.layoutName = layoutName;
+    //     this.plants = new ArrayList<>();
+    //     this.scanner = new Scanner(System.in);
+    // }
+    public Garden(String layoutName){// kek punyamu yang kemarin, ndk 
+        super(layoutName); //sini mko deh, mauka liat ki punyamu (yyt)
+        this.layoutName = layoutName; //(zlfa)
+        this.plants = new ArrayList<>();//oh iyakah? apanya error pddo?
         this.scanner = new Scanner(System.in);
+
     }
 
     // Membuat taman dan tanaman awal
