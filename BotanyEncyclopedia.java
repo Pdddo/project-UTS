@@ -13,9 +13,9 @@ public class BotanyEncyclopedia {
             System.out.println("\n=== Menu Ensiklopedia Tanaman Hias ===");
             System.out.println("1. Tambah Tanaman Hias");
             System.out.println("2. Lihat Semua Tanaman");
-            System.out.println("3. Keluar");
+            System.out.println("0. Keluar");
             System.out.print("Pilih menu (1-3): ");
-            String pilihan = input.nextLine();
+            String pilihan = input.nextLine().trim();
 
             switch (pilihan) {
                 case "1":
@@ -24,12 +24,12 @@ public class BotanyEncyclopedia {
                 case "2":
                     showAllPlants();
                     break;
-                case "3":
+                case "0":
                     running = false;
                     System.out.println("Terima kasih telah menggunakan Ensiklopedia Tanaman!");
                     break;
                 default:
-                    System.out.println("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.");
+                    System.out.println("❌ Pilihan tidak valid. Silakan pilih 1, 2, atau 3.");
             }
         }
     }
@@ -38,21 +38,26 @@ public class BotanyEncyclopedia {
         try {
             System.out.println("\n--- Tambah Tanaman Hias Baru ---");
 
-            System.out.print("Nama Tanaman: ");
-            String namaTanaman = input.nextLine();
-            System.out.print("Nama Ilmiah Tanaman: ");
-            String namaIlmiah = input.nextLine();
-            System.out.print("Kategori Tanaman (e.g., Bunga, Foliase): ");
-            String kategori = input.nextLine();
-            System.out.print("Apakah cocok untuk dalam ruangan? (true/false): ");
-            boolean indoor = Boolean.parseBoolean(input.nextLine());
-            System.out.print("Preferensi Cahaya: ");
-            String cahaya = input.nextLine();
-            TanamanHias tanaman = new TanamanHias(namaTanaman, namaIlmiah, kategori, indoor, cahaya);
-            // System.out.print("Nama Ilmiah Tanaman: ");
-            // tanaman.setScientificName(input.nextLine());
-            
+            String namaTanaman = inputText("Nama Tanaman (huruf saja, tidak boleh kosong): ");
+            String namaIlmiah = inputText("Nama Ilmiah Tanaman (huruf saja, tidak boleh kosong): ");
+            String kategori = inputText("Kategori Tanaman (e.g., Bunga, Foliase): ");
+            boolean indoor = inputBoolean("Apakah cocok untuk dalam ruangan? (true/false): ");
 
+            String cahaya;
+            while (true) {
+                System.out.print("Preferensi Cahaya: ");
+                cahaya = input.nextLine().trim();
+
+                if (cahaya.isEmpty()) {
+                    System.out.println("❌ Input tidak boleh kosong.");
+                } else if (!cahaya.matches("\\d+")) {
+                    System.out.println("❌ Input hanya boleh berupa angka bulat positif (tanpa huruf atau simbol).");
+                } else {
+                    break;
+                }
+            }
+
+            TanamanHias tanaman = new TanamanHias(namaTanaman, namaIlmiah, kategori, indoor, cahaya);
             tanamanList.add(tanaman);
             System.out.println("\n✅ Tanaman berhasil ditambahkan!");
         } catch (Exception e) {
@@ -60,6 +65,32 @@ public class BotanyEncyclopedia {
         }
     }
 
+    private String inputText(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String inputStr = input.nextLine().trim();
+
+            if (inputStr.isEmpty()) {
+                System.out.println("❌ Input tidak boleh kosong.");
+            } else if (!inputStr.matches("[a-zA-Z\\s]+")) {
+                System.out.println("❌ Input hanya boleh huruf dan spasi.");
+            } else {
+                return inputStr;
+            }
+        }
+    }
+
+    private boolean inputBoolean(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String boolStr = input.nextLine().trim().toLowerCase();
+
+            if (boolStr.equals("true")) return true;
+            if (boolStr.equals("false")) return false;
+
+            System.out.println("❌ Masukkan hanya 'true' atau 'false'.");
+        }
+    }
 
     // Menampilkan semua tanaman yang sudah dimasukkan
     public void showAllPlants() {
@@ -68,8 +99,8 @@ public class BotanyEncyclopedia {
             return;
         }
 
+        System.out.println("\n=== Daftar Tanaman dalam Ensiklopedia ===");
         for (TanamanHias tanaman : tanamanList) {
-            System.out.println("\n=== Daftar Tanaman dalam Ensiklopedia ===");
             tanaman.describe();
         }
     }

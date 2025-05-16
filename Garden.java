@@ -37,13 +37,23 @@ public class Garden extends Plant{
             System.out.println("\n*** Tambah Tanaman Baru ***");
             System.out.print("Masukkan nama tanaman: ");
             String plantName = scanner.nextLine();
-
+                if (plantName.isEmpty() || !plantName.matches("[a-zA-Z\\s]+")) {
+                    throw new IllegalArgumentException("Nama Ilmiah hanya boleh huruf dan tidak boleh kosong.");
+                }
             System.out.print("Masukkan nama ilmiah tanaman: ");
             String scientificName = scanner.nextLine();
+                if (scientificName.isEmpty() || !scientificName.matches("[a-zA-Z\\s]+")) {
+                    throw new IllegalArgumentException("Nama Ilmiah hanya boleh huruf dan tidak boleh kosong.");
+                }
 
-            System.out.print("Masukkan usia tanaman (dalam tahun): ");
-            int age = getIntInput();
+            System.out.print("Masukkan usia tanaman (dalam tahun, bilangan bulat positif): ");
+            String inputStr = input.nextLine().trim();
 
+            if (inputStr.isEmpty() || !inputStr.matches("\\d+")) {
+                throw new IllegalArgumentException("usia hanya boleh huruf dan tidak boleh kosong.");
+            }
+            int age = Integer.parseInt(inputStr);
+            
             System.out.println("Pilih jenis tanaman:");
             System.out.println("1. Tanaman Hias");
             System.out.println("2. Tanaman Obat");
@@ -72,7 +82,7 @@ public class Garden extends Plant{
             plants.add(plant);
             System.out.println("Tanaman " + plantName + " berhasil ditambahkan ke taman!");
         } catch (Exception e) {
-            System.out.println("Terjadi kesalahan saat menambahkan tanaman: " + e.getMessage());
+            System.out.println("Terjadi kesalahan saat menambahkan tanaman");
         }
     }
 
@@ -90,27 +100,6 @@ public class Garden extends Plant{
                 System.out.println("-----------------------------------");
             } catch (Exception e) {
                 System.out.println("Gagal menampilkan informasi tanaman: " + e.getMessage());
-            }
-        }
-    }
-
-    // Mengupdate pertumbuhan semua tanaman secara serentak
-    public void updatePlantGrowth() {
-        if (plants.isEmpty()) {
-            System.out.println("Belum ada tanaman di taman.");
-            return;
-        }
-
-        System.out.println("\n*** Update Pertumbuhan Tanaman ***");
-
-        for (Plant plant : plants) {
-            try {
-                System.out.println("\nMemperbarui tanaman: " + plant.plantName);
-                plant.grow(0);
-                plant.water(false);
-                plant.weather(0);
-            } catch (Exception e) {
-                System.out.println("Gagal memperbarui tanaman " + plant.plantName + ": " + e.getMessage());
             }
         }
     }
@@ -151,15 +140,12 @@ public class Garden extends Plant{
                 switch (action) {
                     case "1":
                         selectedPlant.grow(1);
-                        System.out.println("Tanaman telah tumbuh.");
                         break;
                     case "2":
                         selectedPlant.weather(1);
-                        System.out.println("Cuaca telah mempengaruhi tanaman.");
                         break;
                     case "3":
                         selectedPlant.water(true);
-                        System.out.println("Tanaman telah disiram.");
                         break;
                     case "4":
                         backToMenu = true;

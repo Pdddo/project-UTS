@@ -21,7 +21,7 @@ public class Main {
             System.out.println("\n=== Menu Utama ===");
             System.out.println("1. Masuk ke Menu Pemain");
             System.out.println("2. Buka Ensiklopedia");
-            System.out.println("3. Keluar");
+            System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             String input = scanner.nextLine();
 
@@ -32,7 +32,7 @@ public class Main {
                 case "2":
                     ensiklopedia.startEncyclopedia();
                     break;
-                case "3":
+                case "0":
                     exit = true;
                     System.out.println("Terima kasih telah menggunakan aplikasi taman.");
                     break;
