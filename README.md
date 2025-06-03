@@ -6,15 +6,16 @@
 
 ## 🧩 Fitur Utama
 ### 🌿 Tanam & Rawat 
-Pemain dapat memilih jenis tanaman, menanamnya, dan merawatnya dengan air, cahaya, atau pupuk digital. 
+Pemain dapat memilih jenis tanaman, menanamnya, dan merawatnya dengan air, cahaya matahari, vitamin atau pupuk digital. 
 ### 🕒 Waktu & Perkembangan
-Tanaman tumbuh secara bertahap tergantung perawatan dan waktu — bisa disinkronkan dengan waktu nyata. 
+Tanaman tumbuh secara bertahap tergantung perawatan dan waktu.
 ### 🧪 Karakteristik Tanaman
 Tiap tanaman memiliki atribut: 
-o Nama 
-o Level pertumbuhan (Bibit – Tunas – Mekar) 
-o Status (Sehat, Layu, Overwatered) 
-o Kebutuhan khusus (air, cahaya, tanah) 
+o Nama Tanaman
+o Nama Ilmiah Tanaman
+o Umur Tanaman
+o Status (Sehat, Cukup Sehat, Layu) 
+o Kebutuhan khusus (nutrisi, air, cahaya) 
 ### 📖 Encyclopedia Botani
 Fitur edukatif berisi info singkat tentang tiap tanaman. 
 
@@ -109,39 +110,17 @@ javac *.java
 java Main
 ```
 
-### 2. Versi GUI JavaFX (Terrabotanica GUI)
+### 2. Versi GUI Java Swing (Terrabotanica GUI)
 
 ```bash
-javac --module-path ${workspaceFolder}/lib --add-modules javafx.controls,javafx.fxml -d bin src/**/*.java
-java --module-path ${workspaceFolder}/lib --add-modules javafx.controls,javafx.fxml -cp bin view.MainGUI
+javac *.java
+java TerrabotanicaSwing
 ```
 
-### 3. Konfigurasi VS Code (`launch.json`)
-
-Jika kamu menggunakan **VS Code**, kamu bisa menambahkan konfigurasi berikut di file `.vscode/launch.json`:
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "java",
-      "name": "Launch Terrabotanica GUI 🌿",
-      "request": "launch",
-      "mainClass": "view.MainGUI",
-      "vmArgs": "--module-path ${workspaceFolder}/lib --add-modules javafx.controls,javafx.fxml",
-      "projectName": "myapp_69db43e0"
-    }
-  ]
-}
-```
 
 > **Catatan:**
-> - Versi GUI memerlukan **JavaFX SDK versi 21**.  
-> - Letakkan library JavaFX di folder: `${workspaceFolder}/lib`
-> - Versi CLI hanya memerlukan JDK standar (versi 8+).
-
-
+> - Versi GUI ini berbasis Java Swing jadi **tidak memerlukan JavaFX SDK**.
+> - Hanya butuh **JDK standar (versi 8+)**
 ---
 
 ## 📌 Catatan
